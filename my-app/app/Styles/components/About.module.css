@@ -1,0 +1,200 @@
+.aboutSection {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  margin-top: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* Enhanced text rendering */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  /* Prevent text from becoming blurry on zoom */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Better positioning */
+  position: relative;
+  z-index: 10;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.textContent {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.description {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  /* Enhanced text rendering */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  /* Prevent text from becoming blurry on zoom */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Better positioning */
+  position: relative;
+  z-index: 5;
+}
+
+.experience {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  opacity: 0.85;
+  /* Enhanced text rendering */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  /* Prevent text from becoming blurry on zoom */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Better positioning */
+  position: relative;
+  z-index: 5;
+}
+
+.highlights h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #fbbf24;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.highlights ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.highlights li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlights li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+  
+  .description {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+  
+  .experience {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  }
+  
+  .highlights h3 {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+  }
+  
+  .highlights ul {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .highlights li {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutSection {
+    padding: 1.5rem 0;
+  }
+  
+  .container {
+    padding: 0 0.8rem;
+  }
+  
+  .title {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .description {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    line-height: 1.6;
+  }
+  
+  .experience {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    line-height: 1.6;
+  }
+  
+  .highlights h3 {
+    font-size: clamp(1rem, 4.5vw, 1.3rem);
+    margin-bottom: 1rem;
+  }
+  
+  .highlights li {
+    padding: 0.7rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .title,
+  .description,
+  .experience,
+  .highlights h3,
+  .highlights li {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}

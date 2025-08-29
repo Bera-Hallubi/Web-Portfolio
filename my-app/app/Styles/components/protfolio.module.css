@@ -1,0 +1,249 @@
+
+
+.section1outer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.subtextdiv {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.dynamicBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+.floatingParticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.smokevideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  opacity: 0.8;
+}
+
+.pictureOverlay {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  z-index: 10;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.overlayText {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  font-family: Syntax;
+  font-style: italic;
+  z-index: 50;
+  color: #ffffff;
+  font-size: clamp(24px, 5vw, 60px);
+  font-weight: 600;
+  pointer-events: none;
+  text-align: center;
+  /* Enhanced text rendering */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  /* Prevent text from becoming blurry on zoom */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Smooth transitions for size changes */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Perfect responsive positioning */
+  max-width: min(90%, 800px);
+  min-width: max(200px, 20%);
+  word-wrap: break-word;
+  white-space: normal;
+  /* Ensure text never goes off-screen */
+  overflow: visible;
+}
+
+.overlayText2 {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translateX(-50%);
+  font-family: Syntax;
+  font-style: italic;
+  z-index: 50;
+  color: #ffffff;
+  padding: clamp(4px, 1vw, 6px) clamp(6px, 1.5vw, 10px);
+  border-radius: 6px;
+  font-size: clamp(20px, 4.5vw, 50px);
+  font-weight: 600;
+  pointer-events: none;
+  text-align: center;
+  white-space: normal;
+  /* Enhanced text rendering */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  /* Prevent text from becoming blurry on zoom */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Smooth transitions for size changes */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Perfect responsive positioning */
+  max-width: min(70%, 500px);
+  min-width: max(150px, 15%);
+  word-wrap: break-word;
+  /* Ensure text never goes off-screen */
+  overflow: visible;
+}
+
+.overlayText3 {
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  transform: translateX(-50%);
+  font-family: Syntax;
+  font-style: italic;
+  z-index: 50;
+  color: #ffffff;
+  padding: clamp(5px, 1vw, 6px) clamp(6px, 1.5vw, 10px);
+  border-radius: 6px;
+  font-size: clamp(22px, 5vw, 55px);
+  font-weight: 500;
+  pointer-events: none;
+  text-align: center;
+  white-space: normal;
+  /* Enhanced text rendering */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  /* Prevent text from becoming blurry on zoom */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Smooth transitions for size changes */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Perfect responsive positioning */
+  max-width: min(60%, 400px);
+  min-width: max(120px, 12%);
+  word-wrap: break-word;
+  /* Ensure text never goes off-screen */
+  overflow: visible;
+}
+
+/* Mobile-first responsive design with perfect scaling */
+@media (max-width: 1200px) {
+  .overlayText {
+    font-size: clamp(22px, 4.5vw, 55px);
+    top: 18%;
+  }
+  
+  .overlayText2 {
+    font-size: clamp(18px, 4vw, 45px);
+    left: 18%;
+  }
+  
+  .overlayText3 {
+    font-size: clamp(20px, 4.5vw, 50px);
+    left: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlayText {
+    font-size: clamp(20px, 4.5vw, 40px);
+    top: 20%;
+    left: 50%;
+  }
+  
+  .overlayText2 {
+    font-size: clamp(16px, 4vw, 35px);
+    top: 50%;
+    left: 20%;
+  }
+  
+  .overlayText3 {
+    font-size: clamp(18px, 4.5vw, 40px);
+    top: 50%;
+    left: 80%;
+  }
+}
+
+.maintextdiv {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.projectcontainer {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+
+
+
+
+
+

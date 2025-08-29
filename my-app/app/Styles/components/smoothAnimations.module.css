@@ -1,0 +1,159 @@
+/* Base animation classes */
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fadeInUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeInUp.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Staggered animation delays */
+.stagger1 { transition-delay: 0.1s; }
+.stagger2 { transition-delay: 0.2s; }
+.stagger3 { transition-delay: 0.3s; }
+.stagger4 { transition-delay: 0.4s; }
+.stagger5 { transition-delay: 0.5s; }
+
+/* Scale animation */
+.scaleIn {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scaleIn.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scaleIn.hidden {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Slide in from left */
+.slideInLeft {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slideInLeft.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slideInLeft.hidden {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+/* Slide in from right */
+.slideInRight {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slideInRight.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slideInRight.hidden {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+/* Fade in with blur */
+.fadeInBlur {
+  opacity: 0;
+  filter: blur(10px);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fadeInBlur.visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.fadeInBlur.hidden {
+  opacity: 0;
+  filter: blur(10px);
+}
+
+/* Bounce animation */
+.bounceIn {
+  opacity: 0;
+  transform: scale(0.3) translateY(100px);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.bounceIn.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.bounceIn.hidden {
+  opacity: 0;
+  transform: scale(0.3) translateY(100px);
+}
+
+/* Enhanced exit animations */
+.fadeOutDown {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fadeOutUp {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fadeOutLeft {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fadeOutRight {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scaleOut {
+  opacity: 0;
+  transform: scale(1.2);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+  .fadeInUp,
+  .scaleIn,
+  .slideInLeft,
+  .slideInRight,
+  .fadeInBlur,
+  .bounceIn,
+  .fadeOutDown,
+  .fadeOutUp,
+  .fadeOutLeft,
+  .fadeOutRight,
+  .scaleOut {
+    transition: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
