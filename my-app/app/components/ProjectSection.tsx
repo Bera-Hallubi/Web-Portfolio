@@ -6,8 +6,7 @@ import animationStyles from '@/app/Styles/components/smoothAnimations.module.css
 import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver';
 
 /**
- * Project section component displaying portfolio projects
- * @returns {JSX.Element} Project section component
+ * @returns {JSX.Element}
  */
 const ProjectSection = () => {
   const { elementRef, isVisible } = useIntersectionObserver({

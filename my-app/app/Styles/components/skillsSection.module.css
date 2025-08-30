@@ -14,6 +14,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .title {
@@ -38,17 +40,175 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
+@keyframes floatBubble1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatBubble2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(-0.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(-4px) rotate(-0.5deg);
+  }
+}
+
+@keyframes floatBubble3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-12px) rotate(0.5deg);
+  }
+}
+
+/* Backend window traveling animation - goes to exact window positions with increased down travel and faster bubble flow */
+@keyframes backendTravel {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateY(300px) translateX(0px) rotate(1deg) translateY(-15px); /* Down closer to section corner with faster bubble float */
+  }
+  40% {
+    transform: translateY(300px) translateX(-400px) rotate(2deg) translateY(-20px); /* Left to exact Tools position with faster bubble float */
+  }
+  60% {
+    transform: translateY(0px) translateX(-400px) rotate(1deg) translateY(-12px); /* Up to exact Frontend position with faster bubble float */
+  }
+  80% {
+    transform: translateY(0px) translateX(0px) rotate(1deg) translateY(-18px); /* Back to center with faster bubble float */
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+/* Frontend window following animation - waits 1 sec before starting, then travels at same speed as Backend with faster bubble flow */
+@keyframes frontendFollow {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  7% {
+    transform: translateY(0px) translateX(0px) rotate(0deg); /* Wait 1 sec at center */
+  }
+  27% {
+    transform: translateY(0px) translateX(400px) rotate(1deg) translateY(-22px); /* Go to right corner after waiting with faster bubble float */
+  }
+  47% {
+    transform: translateY(300px) translateX(400px) rotate(2deg) translateY(-16px); /* Move to down corner with faster bubble float */
+  }
+  67% {
+    transform: translateY(300px) translateX(0px) rotate(1deg) translateY(-25px); /* Move to left corner with faster bubble float */
+  }
+  87% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) translateY(-14px); /* Move back to center with faster bubble float */
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+
+@keyframes toolsFollow {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  13% {
+    transform: translateY(0px) translateX(0px) rotate(0deg); /* Wait 2 sec at center */
+  }
+  33% {
+    transform: translateY(-300px) translateX(0px) rotate(1deg) translateY(-19px); /* Up to top corner first with faster bubble float */
+  }
+  53% {
+    transform: translateY(-300px) translateX(400px) rotate(2deg) translateY(-11px); /* Right to top-right corner with faster bubble float */
+  }
+  73% {
+    transform: translateY(25px) translateX(400px) rotate(1deg) translateY(-23px); /* Down to quarter distance with faster bubble float */
+  }
+  100% {
+    transform: translateY(0px) translateX(-100px) rotate(2deg) translateY(-17px); /* Left to quarter distance with faster bubble float */
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg); /* Back to center */
+  }
+}
+
+
+.skillCategory:nth-child(1) {
+  animation: frontendFollow 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 0s;
+}
+
+.skillCategory:nth-child(2) {
+  animation: backendTravel 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 0s;
+}
+
+.skillCategory:nth-child(3) {
+  animation: toolsFollow 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 0s;
+}
+
+
 .skillCategory:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.02);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  animation-play-state: paused !important; /* Pause floating on hover */
+}
+
+.skillCategory:hover ~ .skillCategory,
+.skillCategory:hover {
+  animation-play-state: paused !important;
+}
+
+.skillsGrid:hover .skillCategory {
+  animation-play-state: paused !important;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.categoryIcon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .categoryTitle {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   text-align: center;
   color: #fbbf24;
 }
@@ -78,7 +238,6 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .skillsSection {
     padding: 2rem 0;
