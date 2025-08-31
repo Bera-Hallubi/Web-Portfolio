@@ -4,7 +4,7 @@ import React from 'react';
 import styles from '@/app/Styles/components/Footer.module.css';
 import animationStyles from '@/app/Styles/components/smoothAnimations.module.css';
 import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver';
-
+import Image from 'next/image';
 /**
  * Footer component with contact information and social links
  * @returns {JSX.Element} Footer component
@@ -36,15 +36,15 @@ const Footer = () => {
             <div className={styles.contactDetails}>
               <div className={styles.contactItem}>
                 <span className={styles.icon}>📧</span>
-                <span>bera.hallubi@example.com</span>
+                <span>Braahoubi@gmail.com</span>
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.icon}>📱</span>
-                <span>+1 (555) 123-4567</span>
+                <span>+90 (531) 383-6448</span>
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.icon}>📍</span>
-                <span>New York, NY</span>
+                <span>Turkey, Adana</span>
               </div>
             </div>
           </div>
@@ -52,15 +52,17 @@ const Footer = () => {
           <div className={`${styles.socialLinks} ${animationStyles.fadeInUp} ${isVisible ? animationStyles.visible : animationStyles.fadeOutDown} ${animationStyles.stagger3}`}>
             <h3>Follow Me</h3>
             <div className={styles.socialIcons}>
-              <a href="#" className={styles.socialLink} aria-label="GitHub">
-                <span>🐙</span>
+              <a href="https://github.com/Bera-Hallubi" className={styles.socialLink} aria-label="GitHub">
+                
+                  <Image src="/media/github.png" alt="GitHub" width={40} height={40} />
+                
               </a>
               <a href="#" className={styles.socialLink} aria-label="LinkedIn">
-                <span>💼</span>
+                <span>
+                  <Image src="/media/linkedin.png" alt="LinkedIn" width={40} height={40} />
+                </span>
               </a>
-              <a href="#" className={styles.socialLink} aria-label="Twitter">
-                <span>🐦</span>
-              </a>
+              
             </div>
           </div>
         </div>
